@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>SI-CAKEP</title>
+	<meta name="description" content="Latest updates and statistic charts">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+	<link href="//www.amcharts.com/lib/3/plugins/export/export.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('assets/vendors/custom/fullcalendar/fullcalendar.bundle.css');  ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('assets/vendors/base/vendors.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('assets/demo/default/base/style.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo base_url('assets/vendors/datatables/datatables.min.css'); ?>" rel="stylesheet" type="text/css" />
+	<!-- <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon.ico'); ?>" /> -->
+
+	<style type="text/css">
+		.dropzone .dz-preview.dz-error .dz-error-message {
+			margin-top: 10px;
+		}
+		.cover {
+			width: 36px; 
+			height: 36px; 
+			object-fit: contain; 
+			border: 1px solid #e4e4e4; 
+			cursor: zoom-in;
+		}
+		.logo-text {
+			font-weight: bold;
+			margin-top: 15px;
+			font-size: 2rem;
+			position: absolute;
+			margin-left: 15px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function imgError(image) {
+			image.onerror = "";
+			image.src = "<?php echo base_url('assets/img/not_found.png') ?>";
+			return true;
+		}
+	</script>
+</head>
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+	<div class="m-grid m-grid--hor m-grid--root m-page">
+		<header class="m-grid__item m-header"  data-minimize-offset="200" data-minimize-mobile-offset="200" >
+			<div class="container m-container--fluid m-container--full-height" style="padding-right: 0px; padding-left: 0px;">
+				<div class="m-stack m-stack--ver m-stack--desktop">
+
+					<div class="m-stack__item m-brand  m-brand--skin-light">
+						<div class="m-stack m-stack--ver m-stack--general">
+							<div class="m-stack__item m-stack__item--middle m-brand__logo">
+								<div class="m-brand__logo-wrapper">
+									<i class="fa fa-bar-chart-o text-info" style="font-size: 2rem"></i>
+									<!-- <img alt="" src="<?php echo base_url('assets/img/favicon.ico'); ?>"> -->
+									<span class="m--font-info logo-text">SI-CAKEP</span>
+								</div>
+							</div>
+							<div class="m-stack__item m-stack__item--middle m-brand__tools">
+								<a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+									<i class="flaticon-more"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+
+						<button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
+							<i class="la la-close"></i>
+						</button>
+						<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light">
+						</div>
+						<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+							<div class="m-stack__item m-topbar__nav-wrapper">
+								<ul class="m-topbar__nav m-nav m-nav--inline">
+									<li class="m-nav__item">
+										<a href="#beranda" class="m-nav__link">
+											<span class="m-nav__link-icon" style="color: #36a3f7; font-size: 1.2rem;">
+												<span>Beranda</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="#kontak" class="m-nav__link">
+											<span class="m-nav__link-icon"  style="color: #36a3f7; font-size: 1.2rem;">
+												<span>Kontak</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="<?= base_url('maps') ?>" class="m-nav__link">
+											<span class="m-nav__link-icon"  style="color: #36a3f7; font-size: 1.2rem;">
+												<span>Peta</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="https://sicakep.malangkota.go.id/admin/" class="m-nav__link">
+											<span class="m-nav__link-icon">
+												<span class="btn m-btn--pill m-btn--air m-btn m-btn--gradient-from-info m-btn--gradient-to-accent" style="padding: 10px">Login</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body"  id="beranda">
+
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+
+				<div class="m-content" style="background: linear-gradient(135deg, #36a3f7 30%, #00c5dc 100%);">
+					<div class="container">
+						<div class="row justify-content-lg-between align-items-center">
+							<div class="col-sm-6 text-white">
+								<h1>SI-CAKEP</h1>
+								<span>Sistem Informasi</span>
+								<br>
+								<b><span>Capaian Kinerja Berbasis GIS</span></b>
+							</div>
+							<div class="col-sm-6">
+								<img class="w-100 h-100" src="<?= base_url('assets/img/chart.png') ?>" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-content" style="background: white" id="kontak">
+					<div class="container pb-4">
+						<div class="row justify-content-lg-between align-items-center">
+							<div class="col-sm-12 text-center my-5">
+								<h3 id="kontak" style="color: #575962">Kontak</h3>
+							</div>
+							<div class="col-sm-4 my-2">
+								<div style="display: flex;-ms-flex-align: start;align-items: flex-start;">
+									<span href="#" class="btn btn-info m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air">
+										<i class="fa fa-map-marker"></i>
+									</span>
+									<div class="ml-3">
+										<h5 class="text-info" style="margin-bottom: 0px">Alamat</h5>
+										<span>Malang</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 my-2">
+								<div style="display: flex;-ms-flex-align: start;align-items: flex-start;">
+									<span href="#" class="btn btn-info m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air">
+										<i class="fa fa-phone"></i>
+									</span>
+									<div class="ml-3">
+										<h5 class="text-info" style="margin-bottom: 0px">Telepon &amp; WhatsApp</h5>
+										<a href="#">(0341) 14045 </a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 my-2">
+								<div style="display: flex;-ms-flex-align: start;align-items: flex-start;">
+									<span href="#" class="btn btn-info m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<div class="ml-3">
+										<h5 class="text-info" style="margin-bottom: 0px">Email</h5>
+										<span>sicakep@gmail.com</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<footer class="m-grid__item		m-footer " style="margin-left: 0px">
+			<div class="container m-container--fluid m-container--full-height m-page__container" style="height: 100%; padding-right: 0px;padding-left: 0px;">
+				<div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+					<div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last text-center">
+						<span class="m-footer__copyright">
+							2020 &copy;
+						</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+		<i class="la la-arrow-up"></i>
+	</div>
+
+	<script src="<?php echo base_url('assets/vendors/base/vendors.bundle.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('assets/demo/default/base/scripts.bundle.js'); ?>" type="text/javascript"></script>
+
+</body>
+</html>
